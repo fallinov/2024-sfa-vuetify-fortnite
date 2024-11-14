@@ -25,6 +25,35 @@ header h1 {
     text-align: center;
 }
 
+/* Styles pour le menu de navigation */
+.navigation {
+    list-style-type: none;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+    margin: 0;
+}
+
+.navigation li {
+    margin: 0 15px;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav li.actif a,
+.navigation a:hover {
+    background-color: #FFFD03;
+    color: #101014;
+    border-radius: 5px;
+}
+
 /*****************************************************
 Contenu principal
 *****************************************************/
@@ -32,6 +61,13 @@ main {
     max-width: 1200px;
     padding: 20px;
     margin: 20px auto 320px;
+}
+
+main section {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc léger pour les sections de contenu */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 /*****************************************************

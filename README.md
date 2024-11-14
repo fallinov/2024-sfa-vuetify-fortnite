@@ -10,7 +10,7 @@ npm install
 npm run dev
 ```
 ### 1.3 S'assurer que le serveur de développement fonctionne
-Ouvrir le navigateur à l'adresse [http://localhost:5173/](http://localhost:5173/) 
+Ouvrir le navigateur à l'adresse [http://localhost:3000/](http://localhost:3000/) 
 
 ## Instructions
 Créer une application Vue.js à partir du site _Fortnite - Armes (Battle Royale)_
@@ -22,15 +22,14 @@ Intégrer dans l'application Vue.js les éléments suivants de la maquette du do
 - Favicon
 - CSS
 - Images
-- Intégration du code HTML du fichier `_sources/index.html` dans le fichier `App.vue`
+- Création d'une page d'acceuil à partir du fichier  `_sources/index.html` dans le fichier `App.vue`
+- Création de la page 
 
 ### Découpage en plusieurs composants
 Découper le code HTML du fichier `App.vue` en plusieurs composants Vue :
 - `PageHeader.vue` contient le `<header>` du site
 - `PageFooter.vue` contient le `<footer>` du site
 - Intégrer le CSS de chaque partie dans le fichier `.vue` correspondant.
-
-> **Ne pas créer de composant représentant une arme !!!** Pas demander dans cette épreuve.
 
 ### 2. Affichage des armes
 Dans le fichier `App.vue` créer une donnée réactive `armesFortnite` initialisée avec le tableau ci-dessous.
