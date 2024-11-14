@@ -29,116 +29,48 @@ Intégrer dans l'application Vue.js les éléments suivants de la maquette du do
 
 ### Découpage en plusieurs composants
 - Découper le code HTML du fichier `App.vue` en plusieurs composants Vue :
-  - `PageHeader.vue` contient le `<header>` du site
-  - `PageFooter.vue` contient le `<footer>` du site
+  - `components/PageHeader.vue` contient le `<header>` du site
+  - `components/PageFooter.vue` contient le `<footer>` du site
   - Et intégrer le `<router-view>` pour y afficher les composants des pages.
 - Créer un composant par page
   - `pages/index.vue` - Accueil
   - `pages/presentation.vue` - Présentation de Fortnite
   - `pages/nouvelle-carte.vue` - Nouvelle Carte
-- Créer un composant représentant une arme : `components/Arme.vue`
 - Intégrer le CSS de chaque partie dans le fichier `.vue` correspondant.
   - CSS général dans `App.vue`
   - CSS du `<header>` dans `PageHeader.vue`
   - CSS du `<footer>` dans `PageFooter.vue`
   - CSS des pages dans les fichiers `.vue` correspondants, 
     utile uniquement pour la page d'accueil et sa liste d'armes.
-    
 
-### 2. Affichage des armes
-Céer 
+### 2. Affichage des armes dans 'pages/index.vue'
 
-Ensuite utiliser une boucle pour parcourir ce tableau et créer un `<li>`
+Récupérer le magasin Pinia et le tableau d'armes puis utiliser
+une boucle `v-for` pour parcourir ce tableau et créer un `<li>` 
 pour chaque arme dans la liste `<ul class="liste-armes">`.
 
 Les éléments dynamiques à afficher pour chaque arme sont :
 - Nom de l'arme
-- Image de l'arme
+- Image de l'arme (ne pas oublier de les copier dans le dossier `public/img/`)
 - Description de l'arme
 - Dégâts
 - Cadence de tir
 - Temps de rechargement
 
-```js
-[
-  {
-    id: 1,
-    nom: "Arbalète",
-    degats: 75,
-    cadence: 0.8,
-    rechargement: 2.5,
-    image: "arbalete.webp",
-    description: "L'arbalète est une arme à longue portée, idéale pour des attaques précises."
-  },
-  {
-    id: 2,
-    nom: "Fusil d'assaut",
-    degats: 30,
-    cadence: 5.5,
-    rechargement: 2.3,
-    image: "fusil-assaut.webp",
-    description: "Le fusil d'assaut est une arme automatique à moyenne portée."
-  },
-  {
-    id: 3,
-    nom: "Fusil à pompe",
-    degats: 90,
-    cadence: 1,
-    rechargement: 3,
-    image: "fusil-pompe.webp",
-    description: "Le fusil à pompe est une arme dévastatrice à courte portée."
-  },
-  {
-    id: 4,
-    nom: "Fusil de sniper",
-    degats: 105,
-    cadence: 0.33,
-    rechargement: 2.7,
-    image: "fusil-sniper.webp",
-    description: "Le fusil de sniper est une arme de précision pour des tirs à très longue portée."
-  },
-  {
-    id: 5,
-    nom: "Lance-roquettes",
-    degats: 110,
-    cadence: 0.75,
-    rechargement: 3.5,
-    image: "lance-roquettes.webp",
-    description: "Le lance-roquettes cause des dégâts massifs avec ses explosions."
-  },
-  {
-    id: 6,
-    nom: "Mitraillette",
-    degats: 25,
-    cadence: 9,
-    rechargement: 2,
-    image: "mitraillette.webp",
-    description: "La mitraillette est une arme automatique à courte portée avec une cadence de tir élevée."
-  },
-  {
-    id: 7,
-    nom: "Pistolet",
-    degats: 23,
-    cadence: 6.5,
-    rechargement: 1.8,
-    image: "pistolet.webp",
-    description: "Le pistolet est une arme de poing polyvalente et rapide."
-  }
-]
-```
-
 ### 3. Ajout d'une arme dans _Mes Objets_
 
-#### Création du tableau réactif `mesObjets`
-Dans `App.vue` créer une donnée réactive de type tableau `mesObjets` qui contiendra
-les armes ajoutées par l'utilisateur.
+#### Création d'une action pour ajouterArme
+Dans le magasin Pinia, créer une action `ajouterArme(arme)`
+qui permet d'ajouter une arme dans le tableau `mesObjets`.
+
+Le paramètre `arme` est l'objet de l'arme à ajouter dans le tableau `mesObjets`.
+
+On ne peut **pas ajouter plus que cinq armes** dans `mesObjets`.
 
 #### Ajout d'une arme dans `mesObjets`
 Au clic sur le bouton `[+]` d'une arme, celle-ci doit être ajoutée dans le tableau `mesObjets`.
-Utiliser la méthode `push()` pour ajouter une arme dans le tableau `mesObjets`.
-```js
-mesObjets.push(armeAajouter);
-```
+Utiliser l'action `ajouterArme(arme)` pour ajouter l'arme dans le tableau `mesObjets`.
+
 ##### Désactiver le bouton `[+]`
 Désactiver le bouton `[+]` de l'arme ajoutée dans `mesObjets` 
 en ajoutant un attribut `disabled` sur le bouton `[+]` de l'arme ajoutée.
@@ -158,8 +90,7 @@ if (invites.includes("Bob")) {
 ```
 #### Affichage des armes dans `mesObjets`
 L'objectif est d'afficher les armes ajoutées dans le tableau `mesObjets` dans le `<footer>` de la page.
-Il faudra donc passer le tableau `mesObjets` en tant que propriété au composant `PageFooter.vue`,
-pour pouvoir l'afficher dans le `<footer>`.
+Il faudra donc récupérer le tableau `mesObjets` dans `components/PageFooter.vue`.
 
 ##### Version simple
 Dans le `<footer>`, créer une boucle `v-for` qui parcourt le tableau `mesObjets` reçu en tant que propriété,

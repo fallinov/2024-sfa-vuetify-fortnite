@@ -12,5 +12,5 @@
   // Charge le magasin des armes
   const amresStore = useArmeStore();
   // Affiche les armes dans la console
-  console.log(amresStore.armes.value);
+  console.log(amresStore.armes);
 </script>
