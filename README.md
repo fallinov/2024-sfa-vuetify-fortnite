@@ -1,6 +1,6 @@
 # Exercice Vue Fortnite
 
-![demo-liste-armes.png](_sources/demo-liste-armes.png)
+![demo-vue-fortnite.gif](_sources/demo-vue-fortnite.gif)
 
 ## Avant de Commencer
 ### 1.1 Installer les Paquets
