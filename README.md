@@ -22,17 +22,31 @@ Intégrer dans l'application Vue.js les éléments suivants de la maquette du do
 - Favicon
 - CSS
 - Images
-- Création d'une page d'acceuil à partir du fichier  `_sources/index.html` dans le fichier `App.vue`
-- Création de la page 
+- Création des **pages** et **routes** à partir des fichiers HTML :
+  - `_sources/index.html` - Accueil
+  - `_sources/presenations.html` - Présentation de Fortnite
+  - `_sources/nouvelle-carte.html` - Nouvelle Carte
 
 ### Découpage en plusieurs composants
-Découper le code HTML du fichier `App.vue` en plusieurs composants Vue :
-- `PageHeader.vue` contient le `<header>` du site
-- `PageFooter.vue` contient le `<footer>` du site
+- Découper le code HTML du fichier `App.vue` en plusieurs composants Vue :
+  - `PageHeader.vue` contient le `<header>` du site
+  - `PageFooter.vue` contient le `<footer>` du site
+  - Et intégrer le `<router-view>` pour y afficher les composants des pages.
+- Créer un composant par page
+  - `pages/index.vue` - Accueil
+  - `pages/presentation.vue` - Présentation de Fortnite
+  - `pages/nouvelle-carte.vue` - Nouvelle Carte
+- Créer un composant représentant une arme : `components/Arme.vue`
 - Intégrer le CSS de chaque partie dans le fichier `.vue` correspondant.
+  - CSS général dans `App.vue`
+  - CSS du `<header>` dans `PageHeader.vue`
+  - CSS du `<footer>` dans `PageFooter.vue`
+  - CSS des pages dans les fichiers `.vue` correspondants, 
+    utile uniquement pour la page d'accueil et sa liste d'armes.
+    
 
 ### 2. Affichage des armes
-Dans le fichier `App.vue` créer une donnée réactive `armesFortnite` initialisée avec le tableau ci-dessous.
+Céer 
 
 Ensuite utiliser une boucle pour parcourir ce tableau et créer un `<li>`
 pour chaque arme dans la liste `<ul class="liste-armes">`.
