@@ -8,9 +8,12 @@
 
 <script setup>
   // Import du magasin des armes
-  import {useArmeStore} from "@/stores/armeStore";
+    import {useArmeStore} from "@/stores/armeStore";
   // Charge le magasin des armes
-  const amresStore = useArmeStore();
-  // Affiche les armes dans la console
-  console.log(amresStore.armes);
+  const armeStore = useArmeStore();
+  // Affiche le nom des armes dans la console
+  for( let arme of armeStore.armes){
+    console.log(arme.nom);
+  }
 </script>
+
