@@ -1,8 +1,6 @@
-Voici la version corrigée du texte :
-
----
-
 # Exercice Vue Fortnite
+
+![demo-liste-armes.png](_sources/demo-liste-armes.png)
 
 ## Avant de Commencer
 ### 1.1 Installer les Paquets
